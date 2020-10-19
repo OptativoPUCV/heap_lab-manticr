@@ -154,3 +154,9 @@ Mon Oct 19 17:21:54 UTC 2020:
  tests:  2|2
 total_score: 20/70
 fcd105e
+Mon Oct 19 17:46:56 UTC 2020: 
+ heap.c | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+ tests:  2|2
+total_score: 25/70
+0dac4d3
