@@ -52,7 +52,7 @@ void heap_pop(Heap* pq)
 {
   if(pq == NULL) return;
 
-  heapElem* aux = 0;;
+  heapElem* aux = (heapElem *) malloc (1 * sizeof(heapElem));
   aux->data = pq->heapArray[0].data;
   aux->priority = pq->heapArray[0].priority;
 
