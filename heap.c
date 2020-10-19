@@ -27,7 +27,23 @@ void* heap_top(Heap* pq)
 
 
 
-void heap_push(Heap* pq, void* data, int priority){
+void heap_push(Heap* pq, void* data, int priority)
+{
+  if(pq == NULL) return;
+  if(pq->size == pq->capac) pq->heapArray = realloc(pq->heapArray, pq->capac * 2 + 1);
+
+  heapElem* aux = (heapElem *) malloc(pq->capac * sizeof(heapElem));
+  int pos = 0;
+  while(pq->heapArray[pos].data != NULL)
+  {
+    aux[pos+1] = pq->heapArray[pos];
+    pos++;
+  }
+
+  pq->heapArray[0].data = data;
+  pq->heapArray[0].priority = priority;
+
+  pq->heapArray = aux;
 
 }
 
