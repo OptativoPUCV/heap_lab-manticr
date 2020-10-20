@@ -62,8 +62,7 @@ void heap_push(Heap* pq, void* data, int priority)
   {
     pq->capac = (pq->capac * 2) + 1;
     pq->heapArray = realloc (pq->heapArray, pq->capac);
-  } 
-  if(pq->size == 0)
+  } else { if(pq->size == 0)
   {
     pq->heapArray[0].data = data;
     pq->heapArray[0].priority = priority;
@@ -75,6 +74,10 @@ void heap_push(Heap* pq, void* data, int priority)
     pq->heapArray[pq->size].priority = priority;
     pq->size++;
   }
+
+  }
+
+  
 
   
 
