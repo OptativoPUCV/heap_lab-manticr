@@ -369,3 +369,11 @@ Tue Oct 20 12:25:26 UTC 2020:
  tests:  6|1
 total_score: 60/70
 feda892
+Tue Oct 20 12:26:10 UTC 2020: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+realloc(): invalid next size
+realloc(): invalid next size
+ tests:  0|0
+realloc(): invalid next size
+0ebc94a
