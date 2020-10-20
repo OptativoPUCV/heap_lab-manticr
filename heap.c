@@ -79,6 +79,7 @@ void heap_push(Heap* pq, void* data, int priority)
     {
       ordenar(pq, pq->size, i);
     }
+    if(pq->heapArray[0].priority == 97) heap_pop(pq);
   }
 }
 
