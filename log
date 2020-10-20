@@ -319,3 +319,11 @@ Tue Oct 20 12:22:36 UTC 2020:
  tests:  6|1
 total_score: 60/70
 896e26b
+Tue Oct 20 12:22:44 UTC 2020: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+realloc(): invalid next size
+realloc(): invalid next size
+ tests:  0|0
+realloc(): invalid next size
+1480c77
