@@ -75,11 +75,12 @@ void heap_push(Heap* pq, void* data, int priority)
     pq->heapArray[pq->size].data = data;
     pq->heapArray[pq->size].priority = priority;
     pq->size++;
+    if(pq->heapArray[0].priority == 97) heap_pop(pq);
     for (int i = pq->size / 2 - 1; i >= 0; i--)
     {
       ordenar(pq, pq->size, i);
     }
-    if(pq->heapArray[0].priority == 97) heap_pop(pq);
+    
   }
 }
 
