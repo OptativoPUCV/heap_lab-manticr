@@ -72,12 +72,12 @@ void heap_push(Heap* pq, void* data, int priority)
     
   }
 
-  if(pq->size == pq->capac) pq->heapArray = realloc(pq->heapArray, pq->capac * 2 + 1);
   for (int i = pq->size / 2 - 1; i >= 0; i--)
   {
     ordenar(pq, pq->size, i);
   }
 
+  printf("%i %i \n", pq->size, pq->capac);
 }
 
 
