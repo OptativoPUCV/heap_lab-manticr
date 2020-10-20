@@ -28,7 +28,6 @@ void ordenar(Heap * pq, int size, int i)
    if (size == 1) {
     printf("Single element in the heap");
   } else {
-    // Find the largest among root, left child and right child
     int largest = i;
     int l = 2 * i + 1;
     int r = 2 * i + 2;
@@ -37,7 +36,6 @@ void ordenar(Heap * pq, int size, int i)
     if (r < size && pq->heapArray[r].priority > pq->heapArray[largest].priority)
       largest = r;
 
-    // Swap and continue heapifying if root is not largest
     if (largest != i) {
       swap(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
       ordenar(pq, size, largest);
