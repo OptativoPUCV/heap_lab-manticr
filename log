@@ -190,3 +190,9 @@ Tue Oct 20 11:38:00 UTC 2020:
  1 file changed, 4 insertions(+), 4 deletions(-)
  tests:  0|0
 f199000
+Tue Oct 20 12:00:06 UTC 2020: 
+ heap.c | 59 +++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 27 insertions(+), 32 deletions(-)
+ tests:  2|2
+total_score: 20/70
+a47522c

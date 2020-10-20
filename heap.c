@@ -16,40 +16,32 @@ typedef struct Heap{
   int capac;
 } Heap;
 
-void ordenar(Heap * pq)
+void swap(int *a, int *b)
 {
-  heapElem * aux1 = (heapElem *) malloc (sizeof(heapElem));
-  heapElem * aux2 = (heapElem *) malloc (sizeof(heapElem));
-  int prioridad;
-  void* data;
+  int temp = *b;
+  *b = *a;
+  *a = temp;
+}
 
-  int pos = 0;
-  aux1->data = pq->heapArray[pos].data;
-  aux1->priority = pq->heapArray[pos].priority;
-  while(pq->heapArray[pos+1].data != NULL)
-  {
-    aux2->data = pq->heapArray[pos+1].data;
-    aux2->priority = pq->heapArray[pos+1].priority;
-    while(aux2 != NULL)
-    {
-      if(aux1->priority > aux2->priority)
-      {
-        prioridad = aux1->priority;
-        data = aux1->data;
+void ordenar(Heap * pq, int size, int i)
+{
+   if (size == 1) {
+    printf("Single element in the heap");
+  } else {
+    // Find the largest among root, left child and right child
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+    if (l < size && pq->heapArray[l].priority > pq->heapArray[largest].priority)
+      largest = l;
+    if (r < size && pq->heapArray[r].priority > pq->heapArray[largest].priority)
+      largest = r;
 
-        aux1->priority = aux2->priority;
-        aux1->data = aux2->data;
-
-        aux2->priority = prioridad;
-        aux2->data = data;
-      }
-      pos++;
-      aux2->data = pq->heapArray[pos].data;
-      aux2->priority = pq->heapArray[pos].priority;
+    // Swap and continue heapifying if root is not largest
+    if (largest != i) {
+      swap(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
+      ordenar(pq, size, largest);
     }
-    aux1->data = pq->heapArray[pos-1].data;
-    aux1->priority = pq->heapArray[pos-1].priority;
-    
   }
 }
 
@@ -74,7 +66,11 @@ void heap_push(Heap* pq, void* data, int priority)
   pq->heapArray[pos].data = data;
   pq->heapArray[pos].priority = priority;
 
-  ordenar(pq);
+  pq->size++;
+  for (int i = pq->size / 2 - 1; i >= 0; i--)
+  {
+    ordenar(pq, pq->size, i);
+  }
 }
 
 
@@ -93,7 +89,6 @@ void heap_pop(Heap* pq)
   pq->heapArray[pq->size-1].priority = aux->priority;
   
   pq->size--;
-  ordenar(pq);
 }
 
 Heap* createHeap()
