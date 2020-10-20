@@ -63,13 +63,13 @@ void heap_push(Heap* pq, void* data, int priority)
   {
     pq->heapArray[0].data = data;
     pq->heapArray[0].priority = priority;
-    pq->size++;
+    
   }
   else
   {
     pq->heapArray[pq->size].data = data;
     pq->heapArray[pq->size].priority = priority;
-    pq->size++;
+    
   }
 
   for (int i = pq->size / 2 - 1; i >= 0; i--)
