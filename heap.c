@@ -16,7 +16,7 @@ typedef struct Heap{
   int capac;
 } Heap;
 
-void swap(int *a, int *b)
+void cambio(int *a, int *b)
 {
   int temp = *b;
   *b = *a;
@@ -38,7 +38,7 @@ void ordenar(Heap * pq, int size, int i)
 
     if (largest != i) 
     {
-      swap(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
+      cambio(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
       ordenar(pq, size, largest);
     }
   }
@@ -64,8 +64,8 @@ void heap_push(Heap* pq, void* data, int priority)
 
   pq->heapArray[pos].data = data;
   pq->heapArray[pos].priority = priority;
-
   pq->size++;
+  
   for (int i = pq->size / 2 - 1; i >= 0; i--)
   {
     ordenar(pq, pq->size, i);
