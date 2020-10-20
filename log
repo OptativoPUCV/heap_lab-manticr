@@ -301,3 +301,9 @@ Tue Oct 20 12:19:51 UTC 2020:
  tests:  6|1
 total_score: 60/70
 bb2afd2
+Tue Oct 20 12:20:30 UTC 2020: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ tests:  6|1
+total_score: 60/70
+e6465f3

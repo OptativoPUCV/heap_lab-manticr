@@ -66,13 +66,13 @@ void heap_push(Heap* pq, void* data, int priority)
   }
   else
   {
-    
     pq->heapArray[pq->size].data = data;
     pq->heapArray[pq->size].priority = priority;
     pq->size++;
-    if(pq->size == pq->capac) pq->heapArray = realloc(pq->heapArray, pq->capac * 2 + 1);
+    
   }
 
+  if(pq->size == pq->capac) pq->heapArray = realloc(pq->heapArray, pq->capac * 2 + 1);
   for (int i = pq->size / 2 - 1; i >= 0; i--)
   {
     ordenar(pq, pq->size, i);
