@@ -38,7 +38,7 @@ void ordenar(Heap * pq, int size, int i)
     if (hijo2 < size && pq->heapArray[hijo2].priority > pq->heapArray[mas_largo].priority)
       mas_largo = hijo2;
 
-    if (mas_largo < i) 
+    if (mas_largo > i) 
     {
       cambio(&pq->heapArray[i].priority, &pq->heapArray[mas_largo].priority);
       ordenar(pq, size, mas_largo);
