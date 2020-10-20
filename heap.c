@@ -26,7 +26,7 @@ void ordenar(Heap * pq)
   int pos = 0;
   aux1->data = pq->heapArray[pos].data;
   aux1->priority = pq->heapArray[pos].priority;
-  while(pq->heapArray[pos+1].data != NULL)
+  while(pq->heapArray[pos+2].data != NULL)
   {
     aux2->data = pq->heapArray[pos+1].data;
     aux2->priority = pq->heapArray[pos+1].priority;
