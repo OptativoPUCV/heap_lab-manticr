@@ -25,9 +25,9 @@ void swap(int *a, int *b)
 
 void ordenar(Heap * pq, int size, int i)
 {
-   if (size == 1) {
-    printf("Single element in the heap");
-  } else {
+  if (size == 1) return;
+  else 
+  {
     int largest = i;
     int l = 2 * i + 1;
     int r = 2 * i + 2;
@@ -36,7 +36,8 @@ void ordenar(Heap * pq, int size, int i)
     if (r < size && pq->heapArray[r].priority > pq->heapArray[largest].priority)
       largest = r;
 
-    if (largest != i) {
+    if (largest != i) 
+    {
       swap(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
       ordenar(pq, size, largest);
     }
@@ -87,6 +88,9 @@ void heap_pop(Heap* pq)
   pq->heapArray[pq->size-1].priority = aux->priority;
   
   pq->size--;
+  for (int i = pq->size / 2 - 1; i >= 0; i--) {
+    ordenar(pq, pq->size, i);
+  }
 }
 
 Heap* createHeap()
