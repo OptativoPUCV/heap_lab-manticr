@@ -80,10 +80,6 @@ void heap_push(Heap* pq, void* data, int priority)
       ordenar(pq, pq->size, i);
     }
   }
-
-  for (int x = 0; x < pq->size; x++)
-    printf("%d ", pq->heapArray[x].priority);
-  printf("\n");
 }
 
 
