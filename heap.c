@@ -18,26 +18,37 @@ typedef struct Heap{
 
 void ordenar(Heap * pq)
 {
-  int padre = 0;
-  int hijo1 = padre+1;
-  int hijo2 = padre+2;
-  while(hijo2 <= pq->size)
+  heapElem * aux1 = (heapElem *) malloc (sizeof(heapElem));
+  heapElem * aux2 = (heapElem *) malloc (sizeof(heapElem));
+  int prioridad;
+  void* data;
+
+  int pos = 0;
+  aux1->data = pq->heapArray[pos].data;
+  aux1->priority = pq->heapArray[pos].priority;
+  while(pq->heapArray[pos+1].data != NULL)
   {
-    if(pq->heapArray[padre].priority < pq->heapArray[hijo1].priority)
+    aux2->data = pq->heapArray[pos+1].data;
+    aux2->priority = pq->heapArray[pos+1].priority;
+    while(aux2 != NULL)
     {
-      pq->heapArray[padre].data = pq->heapArray[hijo1].data;
-      pq->heapArray[padre].priority = pq->heapArray[hijo1].priority;
-    }
+      if(aux1->priority > aux2->priority)
+      {
+        prioridad = aux1->priority;
+        data = aux1->data;
 
-    if(pq->heapArray[padre].priority < pq->heapArray[hijo2].priority)
-    {
-      pq->heapArray[padre].data = pq->heapArray[hijo2].data;
-      pq->heapArray[padre].priority = pq->heapArray[hijo2].priority;
-    }
+        aux1->priority = aux2->priority;
+        aux1->data = aux2->data;
 
-    padre++;
-    hijo1 = hijo2+1;
-    hijo2 = hijo1+1;
+        aux2->priority = prioridad;
+        aux2->data = data;
+      }
+      pos++;
+      aux2->data = pq->heapArray[pos+1].data;
+      aux2->priority = pq->heapArray[pos+1].priority;
+    }
+    aux1->data = pq->heapArray[pos].data;
+    aux1->priority = pq->heapArray[pos].priority;
   }
 }
 
