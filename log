@@ -175,3 +175,8 @@ Tue Oct 20 11:32:05 UTC 2020:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 8ab9076
+Tue Oct 20 11:34:54 UTC 2020: 
+ heap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ tests:  0|0
+619a41e
