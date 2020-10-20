@@ -74,15 +74,13 @@ void heap_push(Heap* pq, void* data, int priority)
     pq->heapArray[pq->size].data = data;
     pq->heapArray[pq->size].priority = priority;
     pq->size++;
+    for (int i = pq->size / 2 - 1; i >= 0; i--)
+    {
+      ordenar(pq, pq->size, i);
+    }
   }
 
   
-  
-
-  for (int i = pq->size / 2 - 1; i >= 0; i--)
-  {
-    ordenar(pq, pq->size, i);
-  }
 
   printf("%i %i \n", pq->size, pq->capac);
 }
