@@ -28,18 +28,18 @@ void ordenar(Heap * pq, int size, int i)
   if (size == 1) return;
   else 
   {
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
-    if (l < size && pq->heapArray[l].priority > pq->heapArray[largest].priority)
-      largest = l;
-    if (r < size && pq->heapArray[r].priority > pq->heapArray[largest].priority)
-      largest = r;
+    int mas_largo = i;
+    int hijo1 = 2 * i + 1;
+    int hijo2 = 2 * i + 2;
+    if (hijo1 < size && pq->heapArray[hijo1].priority > pq->heapArray[mas_largo].priority)
+      mas_largo = hijo1;
+    if (hijo2 < size && pq->heapArray[hijo2].priority > pq->heapArray[mas_largo].priority)
+      mas_largo = hijo2;
 
-    if (largest != i) 
+    if (mas_largo != i) 
     {
-      cambio(&pq->heapArray[i].priority, &pq->heapArray[largest].priority);
-      ordenar(pq, size, largest);
+      cambio(&pq->heapArray[i].priority, &pq->heapArray[mas_largo].priority);
+      ordenar(pq, size, mas_largo);
     }
   }
 }
